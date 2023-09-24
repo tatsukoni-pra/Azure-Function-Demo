@@ -39,7 +39,7 @@ jobs:
         id: fa
         with:
           app-name: 'function-tatsukoni-test-v1'
-          # slot-name: 'Production'
-          slot-name: 'function-tatsukoni-test-v1'
+          slot-name: 'Production'
+          # slot-name: 'function-tatsukoni-test-v1'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_246D050C770749E3B3FE15FE0CE205B7 }}
