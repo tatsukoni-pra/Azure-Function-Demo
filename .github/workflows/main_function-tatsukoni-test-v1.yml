@@ -16,6 +16,9 @@ env:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
     steps:
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@v2
@@ -28,7 +31,7 @@ jobs:
       - name: 'Resolve Project Dependencies Using Npm'
         shell: bash
         run: |
-          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+          pushd '.'
           npm install
           npm run build --if-present
           npm run test --if-present
@@ -41,5 +44,5 @@ jobs:
           app-name: 'function-tatsukoni-test-v1'
           slot-name: 'Production'
           # slot-name: 'function-tatsukoni-test-v1'
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          package: '.'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_246D050C770749E3B3FE15FE0CE205B7 }}
