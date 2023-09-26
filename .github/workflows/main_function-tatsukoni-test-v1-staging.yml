@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: './api' # set this to the path to your web app project, defaults to the repository root
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: './app' # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '18.x' # set this to the node version to use (supports 8.x, 10.x, 12.x)
 
 jobs:
@@ -39,7 +39,6 @@ jobs:
         id: fa
         with:
           app-name: 'function-tatsukoni-test-v1'
-          slot-name: 'Production'
-          # slot-name: 'function-tatsukoni-test-v1'
+          slot-name: 'staging'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_246D050C770749E3B3FE15FE0CE205B7 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A0AF8E9E40B6404094CAD4C070488318 }}
