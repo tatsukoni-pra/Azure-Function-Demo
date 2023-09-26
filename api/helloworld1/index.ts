@@ -7,7 +7,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     await sleep(180000); // 3min
     context.res = {
         // status: 200, /* Defaults to 200 */
-        body: "hello world 1 v2"
+        body: "hello world 2"
     };
 };
 
