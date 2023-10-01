@@ -19,9 +19,9 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
     const container = client.database("TatsukoniTest").container("tatsukoni-test-1");
     const operations: PatchOperation[] = [
         {
-          op: "replace", // replace operation を使用
-          path: "/text", // 更新するプロパティのパス
-          value: "Timer trigger function v1 run! " + timeStamp
+            op: "replace", // replace operation を使用
+            path: "/text", // 更新するプロパティのパス
+            value: "Timer trigger function v1 run! " + timeStamp
         }
     ];
     const { resource: updateItem } = await container.item("1", "1").patch(operations);

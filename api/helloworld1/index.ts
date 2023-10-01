@@ -9,7 +9,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     context.log('HTTP trigger function processed a request.');
 
     const container = client.database("TatsukoniTest").container("tatsukoni-test-1");
-    const { resource: item } = await container.item("1", "1").read();
+    const { resource: item } = await container.item("2", "2").read();
 
     context.res = {
         // status: 200, /* Defaults to 200 */
