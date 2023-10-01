@@ -4,11 +4,16 @@ import { AzureFunction, Context } from "@azure/functions"
 const client = new CosmosClient(process.env["COSMOSDB_CONNECTION_STRING"]);
 
 const timerTrigger: AzureFunction = async function (context: Context, myTimer: any): Promise<void> {
-    context.log('Start timer trigger function v2');
+    if (process.env.IS_SLOT && process.env.IS_SLOT === "true") {
+        context.log('This is Slot. Skip timer trigger function');
+        return;
+    }
+
+    context.log('Start timer trigger function');
 
     var timeStamp = new Date().toISOString();
     if (myTimer.isPastDue) {
-        context.log('Timer function v2 is running late!');
+        context.log('Timer function is running late!');
     }
 
     const container = client.database("TatsukoniTest").container("tatsukoni-test-1");
