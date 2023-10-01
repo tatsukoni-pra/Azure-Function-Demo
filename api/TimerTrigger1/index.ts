@@ -24,7 +24,7 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
             value: "Timer trigger function v1 run! " + timeStamp
         }
     ];
-    const { resource: updateItem } = await container.item("1", "1").patch(operations);
+    const { resource: updateItem } = await container.item("2", "2").patch(operations);
 
     context.log('Finish timer trigger function v2');
 };
