@@ -16,7 +16,7 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
         {
             op: "replace", // replace operation を使用
             path: "/text", // 更新するプロパティのパス
-            value: "2023/10/03 Timer trigger function run! " + timeStamp
+            value: "2023-10-03 Timer trigger function run! " + timeStamp
         }
     ];
     const { resource: updateItem } = await container.item("1", "1").patch(operations);
