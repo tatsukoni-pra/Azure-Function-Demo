@@ -50,6 +50,10 @@ jobs:
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A0AF8E9E40B6404094CAD4C070488318 }}
 
+      - name: 'Logout via Azure CLI'
+        run: |
+          az logout
+
       # - name: 'Swap Azure Function To Production'
       #   id: slot_swap
       #   run: |
