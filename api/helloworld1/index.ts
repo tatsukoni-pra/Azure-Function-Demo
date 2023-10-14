@@ -6,7 +6,7 @@ const sleep = (ms: number) => new Promise((res) => setTimeout(res, ms));
 const client = new CosmosClient(process.env["COSMOSDB_CONNECTION_STRING"]);
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
+    context.log('HTTP trigger function 1 processed a request.');
 
     await sleep(180000);
 
